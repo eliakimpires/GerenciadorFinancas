@@ -1,4 +1,4 @@
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator} from '@react-navigation/native-stack'
 import { Feather } from '@expo/vector-icons'
@@ -41,6 +41,14 @@ import CadastrarVendasProdutosServicos from "../PagesAfterLogin/GerenciarFaturam
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const styles = StyleSheet.create({
+    logo:{
+        width: 100,
+        height: 100,
+        marginLeft: "17%"
+    }
+})
+
 export default function Routes({navigation}){
 return(
     <Stack.Navigator>
@@ -67,10 +75,13 @@ return(
         <Stack.Screen   //--------------------------------------------------- PÁGINA PRINCIPAL ------------------------------------------------------
             name="Home" 
             component={Tabs} 
-            options={{title: 'Gerenciador de Finanças', headerBackVisible:false ,headerStyle: {backgroundColor: '#5CC6BA'}, headerTintColor:'#101010', headerRight: () => (
-              <TouchableOpacity onPress={()=> alert('Settings') }><Feather name="settings" size={24} color="black" /></TouchableOpacity>
+            options={{title: "",headerBackVisible:false ,headerStyle: {backgroundColor: '#5CC6BA'}, headerTintColor:'#101010',headerLeft: () => (
+                <TouchableOpacity onPress={()=> alert('Settings') }><Image style={styles.logo} source={{
+                    uri: 'https://i.imgur.com/wkitxwY.png',
+                  }}/></TouchableOpacity>
             )}}
         />
+
         <Stack.Screen //--------------------------------------------------- PÁGINAS GERENCIAR CUSTOS ------------------------------------------------------
             name="Gerenciar Custos" 
             component={GerenciarCustos} 

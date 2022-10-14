@@ -14,10 +14,10 @@ export default function GerenciarCustos({navigation}){
                     </TouchableOpacity>
                 </View>
                 <Text style={styles.subTitle}>O que você deseja fazer?</Text>
-                <TouchableOpacity onPress={()=> navigation.navigate('Investimento fixo',{nome: 'João'})} style={styles.button}><Text>Investimento fixo</Text></TouchableOpacity>
-                <TouchableOpacity onPress={()=> navigation.navigate('Custo fixo',{nome: 'João'})} style={styles.button}><Text>Custo fixo</Text></TouchableOpacity>
-                <TouchableOpacity onPress={()=> navigation.navigate('Custos com mão de obra',{nome: 'João'})} style={styles.button}><Text>Custos com mão de obra</Text></TouchableOpacity>
-                <TouchableOpacity onPress={()=> navigation.navigate('Custos variáveis',{nome: 'João'})} style={styles.button}><Text>Custos variáveis</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.navigate('Investimento fixo',{nome: 'João'})} style={styles.button}><Text style={styles.buttonText}>Investimento fixo</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.navigate('Custo fixo',{nome: 'João'})} style={styles.button}><Text style={styles.buttonText}>Custo fixo</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.navigate('Custos com mão de obra',{nome: 'João'})} style={styles.button}><Text style={styles.buttonText}>Custos com mão de obra</Text></TouchableOpacity>
+                <TouchableOpacity onPress={()=> navigation.navigate('Custos variáveis',{nome: 'João'})} style={styles.button}><Text style={styles.buttonText}>Custos variáveis</Text></TouchableOpacity>
             </View>
         </SafeAreaView>
     );
@@ -28,7 +28,7 @@ export default function GerenciarCustos({navigation}){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "fff",
+        backgroundColor: "#FFFFFF",
     },
     headerContainer: {
         padding: 20,
@@ -39,23 +39,27 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         color: "344422",
         textAlign: 'justify',
+        marginTop: -55,
     },
     subTitle: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: "400",
         color: "300022",
-        paddingTop: 12,
+        paddingTop: 20,
         paddingBottom: 20,
-        paddingHorizontal: 6
+        paddingHorizontal: 6,
+        textAlign: "center",
+        
+        
     },
     button: {
         alignSelf: "center",
         borderRadius: 5,
-        backgroundColor: "#0022",
+        backgroundColor: "#5CC6BA",
         margin: 10,
         padding: 10,
         width: 300,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     inputArea:{
         flexDirection: 'row',
@@ -64,5 +68,10 @@ const styles = StyleSheet.create({
     },
     icon:{
         paddingLeft: 20,
+    },
+    buttonText:{
+        fontSize: 22,
+        color: "#FFFFFF",
+        fontWeight: "bolder"
     }
 });
