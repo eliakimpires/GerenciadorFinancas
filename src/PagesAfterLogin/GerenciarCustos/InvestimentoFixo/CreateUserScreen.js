@@ -5,9 +5,13 @@ import {
   StyleSheet,
   TextInput,
   ScrollView,
+  text,
 } from "react-native";
 
 import firebase from "../../../config";
+import Select from "./Select";
+import { SafeAreaView } from "react-native";
+import { categorias } from "./Select/categorias";
 
 const AddUserScreen = (props) => {
   const initalState = {
@@ -44,13 +48,16 @@ const AddUserScreen = (props) => {
   return (
     <ScrollView style={styles.container}>
       {/* Name Input */}
-      <View style={styles.inputGroup}>
-        <TextInput
-          placeholder="Name"
-          onChangeText={(value) => handleChangeText(value, "name")}
-          value={state.name}
-        />
-      </View>
+      
+      <SafeAreaView>
+          <Select 
+          options={categorias} 
+          onChangeSelect={(id)=> console.log(id)} 
+          text="Selecione uma categoria"
+          label="Categoria:"         
+          />
+      </SafeAreaView>
+      
 
       {/* Email Input */}
       <View style={styles.inputGroup}>

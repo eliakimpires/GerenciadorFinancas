@@ -42,6 +42,13 @@ const AddUserScreen = (props) => {
   };
 
   return (
+
+
+
+
+    
+
+
     <ScrollView style={styles.container}>
       {/* Name Input */}
       <View style={styles.inputGroup}>

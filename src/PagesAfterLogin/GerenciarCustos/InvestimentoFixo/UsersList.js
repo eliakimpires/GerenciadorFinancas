@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Button, StyleSheet } from "react-native";
 import { ListItem, Avatar } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
-
+import { View } from "react-native";
 import firebase from "../../../config";
 
 const UserScreen = (props) => {
   const [users, setUsers] = useState([]);
+
 
   useEffect(() => {
     firebase.db.collection("users").onSnapshot((querySnapshot) => {
@@ -29,10 +30,11 @@ const UserScreen = (props) => {
     <ScrollView>
       <Button
         onPress={() => props.navigation.navigate("CreateUserScreen")}
-        title="Create User"
+        title="Cadastrar Novo "
       />
       {users.map((user) => {
         return (
+          
           <ListItem
             key={user.id}
             bottomDivider
