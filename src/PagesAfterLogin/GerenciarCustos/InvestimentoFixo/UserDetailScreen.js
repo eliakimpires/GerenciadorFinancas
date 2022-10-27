@@ -6,9 +6,11 @@ import {
   Alert,
   ActivityIndicator,
   StyleSheet,
+  Text,
+  TouchableOpacity,
+  SafeAreaView
 } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-
 import firebase from "../../../config";
 
 const UserDetailScreen = (props) => {
@@ -46,11 +48,11 @@ const UserDetailScreen = (props) => {
 
   const openConfirmationAlert = () => {
     Alert.alert(
-      "Removing the User",
-      "Are you sure?",
+      "Excluir investimento fixo",
+      "Você tem certeza?",
       [
-        { text: "Yes", onPress: () => deleteUser() },
-        { text: "No", onPress: () => console.log("canceled") },
+        { text: "Sim", onPress: () => deleteUser() },
+        { text: "Não", onPress: () => console.log("canceled") },
       ],
       {
         cancelable: true,
@@ -110,16 +112,17 @@ const UserDetailScreen = (props) => {
           onChangeText={(value) => handleTextChange(value, "phone")}
         />
       </View>
-      <View style={styles.btn}>
-        <Button
-          title="Delete"
-          onPress={() => openConfirmationAlert()}
-          color="#E37399"
-        />
-      </View>
-      <View>
-        <Button title="Update" onPress={() => updateUser()} color="#19AC52" />
-      </View>
+      
+        <View>
+        <TouchableOpacity onPress={()=> openConfirmationAlert()}
+        style={styles.button}><Text style={styles.buttonText}>Excluir</Text></TouchableOpacity>
+        </View>
+
+        <View>
+        <TouchableOpacity onPress={()=> updateUser()}
+        style={styles.button}><Text style={styles.buttonText}>Atualizar</Text> 
+        </TouchableOpacity>
+        </View>
     </ScrollView>
   );
 };
@@ -128,6 +131,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 35,
+    color: "#00DA57",
   },
   loader: {
     left: 0,
@@ -137,6 +141,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     alignItems: "center",
     justifyContent: "center",
+    color: "#00DA57",
+
   },
   inputGroup: {
     flex: 1,
@@ -145,9 +151,21 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
   },
-  btn: {
-    marginBottom: 7,
+  button:{
+    backgroundcolor: '#00DA57',
+    alignSelf: 'center',
+    borderBottomColor: '#00DA57',
+    color: '#00DA57',
   },
+  button:{
+    backgroundcolor: '#00DA57',
+    alignSelf: 'center',
+    borderBottomColor: '#00DA57',
+    
+  },
+  buttonText:{
+    fontSize: 20,
+  }
 });
 
 export default UserDetailScreen;

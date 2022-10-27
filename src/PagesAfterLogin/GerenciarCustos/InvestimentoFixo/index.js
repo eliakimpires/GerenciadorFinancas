@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, StyleSheet } from "react-native";
 import { ListItem, Avatar } from "react-native-elements";
 import { ScrollView } from "react-native-gesture-handler";
+import Select from "./Select";
+import { categorias } from "./Select/categorias";
 
 import firebase from "../../../config";
 
@@ -12,7 +14,7 @@ const UserScreen = (props) => {
     firebase.db.collection("users").onSnapshot((querySnapshot) => {
       const users = [];
       querySnapshot.docs.forEach((doc) => {
-        const { name, email, phone } = doc.data();
+        const { name, email, phone, } = doc.data();
         users.push({
           id: doc.id,
           name,
@@ -23,7 +25,6 @@ const UserScreen = (props) => {
       setUsers(users);
     });
   }, []);
-
 
   return (
     <ScrollView>
@@ -46,6 +47,7 @@ const UserScreen = (props) => {
               <ListItem.Title>{user.name}</ListItem.Title>
               <ListItem.Subtitle>{user.email}</ListItem.Subtitle>
               <ListItem.Subtitle>{user.phone}</ListItem.Subtitle>
+
             </ListItem.Content>
           </ListItem>
         );

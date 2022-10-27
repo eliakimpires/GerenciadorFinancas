@@ -26,7 +26,7 @@ const Select = ({options, text, onChangeSelect, label}) => {
     return (
      <>
         <Text style={styles.label}>{label}</Text>
-       
+
         <TouchableOpacity style={styles.container} onPress={()=> setModalVisible(true)}>
             <Text style={styles.textButtom} numberOfLines={1}>
                 {txt}

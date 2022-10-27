@@ -1,22 +1,22 @@
 export const categorias = [
     {
-        id: "1",
+        id: "Computadores",
         name: 'Computadores',
     },
     {
-        id: "2",
-        name: 'Moveis',
+        id: "Móveis",
+        name: 'Móveis',
     },
     {
-        id: "3",
+        id: "Gasolina",
         name: 'Gasolina',
     },
     {
-        id: "4",
+        id: "Aparelhos",
         name: 'Aparelhos',
     },
     {
-        id: "5",
+        id: "Marketing",
         name: 'Marketing',
     }
     

@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     },
     containerHeader:{
         marginTop: '14%',
-        marginBottom: '8%',
+        marginBottom: '15%',
         paddingStart: '5%'
     },
     message:{

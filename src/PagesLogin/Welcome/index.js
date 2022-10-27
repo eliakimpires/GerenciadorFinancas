@@ -58,16 +58,18 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         paddingStart: '5%',
-        paddingEnd: '5%'
+        paddingEnd: '5%',
+        marginTop: '0%'
     },
     title:{
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: 28,
+        marginTop: 15,
         marginBottom: 12,
     },
     text:{
-        color: '#a1a1a1'
+        color: '#a1a1a1',
+        marginTop: -5,
     },
     button:{
         position: 'absolute',

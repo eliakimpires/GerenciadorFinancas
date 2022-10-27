@@ -1,4 +1,4 @@
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator} from '@react-navigation/native-stack'
 import { Feather } from '@expo/vector-icons'
@@ -43,9 +43,17 @@ import CadastrarEstoque from                "../PagesAfterLogin/GerenciarFaturam
 import CadastrarVendasPrazo from            "../PagesAfterLogin/GerenciarFaturamento/VendasPrazo/CadastrarVendasPrazo";
 import CadastrarVendasProdutosServicos from "../PagesAfterLogin/GerenciarFaturamento/VendasProdutosServicos/CadastrarVendasProdutosServicos";
 
+import Select from '../PagesAfterLogin/GerenciarCustos/InvestimentoFixo/Select';
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+const styles = StyleSheet.create({
+    logo:{
+        width: 140,
+        height: 50,
+        marginLeft: '35%',
+    }
+})
 export default function Routes({navigation}){
 return(
     <Stack.Navigator>
@@ -72,17 +80,32 @@ return(
         <Stack.Screen   //--------------------------------------------------- PÁGINA PRINCIPAL ------------------------------------------------------
             name="Home" 
             component={Tabs} 
-            options={{title: 'Gerenciador de Finanças', headerBackVisible:false ,headerStyle: {backgroundColor: '#5CC6BA'}, headerTintColor:'#101010', headerRight: () => (
-              <TouchableOpacity onPress={()=> alert('Settings') }><Feather name="settings" size={24} color="black" /></TouchableOpacity>
+            options={{title: "",
+            headerBackVisible:false ,
+            headerStyle: {backgroundColor: '#5CC6BA'},
+            headerTintColor:'#101010',
+            headerLeft: () => (
+                <Image style={styles.logo} source={{
+                    uri: 'https://i.imgur.com/KkYIb6u.png',
+                  }}/>
             )}}
         />
         <Stack.Screen //--------------------------------------------------- PÁGINAS GERENCIAR CUSTOS ------------------------------------------------------
             name="Gerenciar Custos" 
             component={GerenciarCustos} 
+            options={{title: "Gerenciar Custos",
+            headerBackVisible:true ,
+            headerStyle: {backgroundColor: '#fff'},
+            headerTintColor:'#5CC6BA',
+            headerTitleStyle: {fontWeight: '500', fontSize: 22, color: '#717F7F'}
+        
+        }}
+            
         />
         <Stack.Screen 
             name="Investimento fixo" 
             component={InvestimentoFixo} 
+            
         />
         <Stack.Screen 
             name="Cadastrar investimento fixo" 
@@ -112,9 +135,19 @@ return(
             name="Cadastrar custos variáveis" 
             component={CadastrarCustosVariaveis} 
         />
+        <Stack.Screen 
+            name="Select cadastrar investimento fixo" 
+            component={Select} 
+            
+        />
         <Stack.Screen //--------------------------------------------------- PÁGINAS GERENCIAR FATURAMENTO ------------------------------------------------------
             name="Gerenciar Faturamento" 
-            component={GerenciarFaturamento} 
+            component={GerenciarFaturamento}
+            options={{title: "Gerenciar Faturamento",
+            headerBackVisible:true ,
+            headerStyle: {backgroundColor: '#fff'},
+            headerTintColor:'#5CC6BA',
+            headerTitleStyle: {fontWeight: '500', fontSize: 22, color: '#717F7F'}}} 
         />
         <Stack.Screen 
             name="Estoque" 
@@ -169,12 +202,20 @@ return(
         <Stack.Screen
             name="UsersList"
             component={UsersList}
-            options={{ title: "Users List" }}
+            options={{ title: "Investimento Fixo",
+            headerBackVisible:true ,
+            headerStyle: {backgroundColor: '#fff'},
+            headerTintColor:'#5CC6BA',
+            headerTitleStyle: {fontWeight: '500', fontSize: 22, color: '#717F7F'}}}
         />
         <Stack.Screen
             name="CreateUserScreen"
             component={CreateUserScreen}
-            options={{ title: "Users creation" }}
+            options={{ title: "Cadastrar Investimento Fixo",
+            headerBackVisible:true ,
+            headerStyle: {backgroundColor: '#fff'},
+            headerTintColor:'#5CC6BA',
+            headerTitleStyle: {fontWeight: '500', fontSize: 20, color: '#717F7F'}}}
         />
         <Stack.Screen
             name="UserDetailScreen"
@@ -202,7 +243,7 @@ function Tabs(){
         component={Home}
         options={{ 
           headerShown:false, 
-          tabBarIcon:({ color, size }) => (
+          tabBarIcon:({ color, size }) => ( 
             <MaterialCommunityIcons name="menu" color={color} size={size} />), 
         }}
       />
@@ -210,9 +251,15 @@ function Tabs(){
         name="Encerrar sessão" 
         component={Detail}
         options={{
+            headerShown: false,
         tabBarIcon:({ color, size }) => (
-          <MaterialCommunityIcons name="exit-to-app" color={color} size={size} />), 
+          <MaterialCommunityIcons name="exit-to-app" color={color} size={size}  />
+          
+          
+          )
+          
       }}
+      
       />
     </Tab.Navigator>
   )

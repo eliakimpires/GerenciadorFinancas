@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     registerText:{
-        color:'#1212a1',
+        color:'#5CC6BA',
         fontSize: 16
     },
     description:{
